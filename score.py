@@ -1,6 +1,6 @@
 # !user/bin/vin python
 # coding:gbk
-#ÏîÄ¿Ò»£ºÍ³¼Æ³É¼¨
+#é¡¹ç›®ä¸€ï¼šç»Ÿè®¡æˆç»©
 
 with open('report.txt') as f:
     filelines = f.readlines()
@@ -13,30 +13,30 @@ for line in filelines:
     total = 0
     for i in range(1,10):
         total += int(data[i])
-    data.append(str(total))        #Çó×Ü³É¼¨
-    data.append(str(round(total/9.0,2)))  #Æ½¾ù·Ö
+    data.append(str(total))        #æ±‚æ€»æˆç»©
+    data.append(str(round(total/9.0,2)))  #å¹³å‡åˆ†
     new.append(data)
-new.sort(key = lambda x:x[10],reverse = True)   #ÅÅÃû
-print new
+new.sort(key = lambda x:x[10],reverse = True)   #æ’å
+#print new
 
 average_list = []
 average_list.append('0')
-average_list.append('Æ½¾ù·Ö')
+average_list.append('å¹³å‡åˆ†')
 for i in range(9):
     total = 0
     for j in range(len(new)):
         total += int(new[j][i+1])
         if int(new[j][i+1])<60:
-            new[j][i+1] = '²»¼°¸ñ'
+            new[j][i+1] = 'ä¸åŠæ ¼'
     average_list.append(str(round(1.0*total/len(new),2)))
-print average_list
-print new
+#print average_list
+#print new
 rank = 1
 for i in new:
     i.insert(0,str(rank))
     rank +=1
 
-title =['Ãû´Î','ĞÕÃû','ÓïÎÄ','ÊıÑ§','Ó¢Óï','ÎïÀí','»¯Ñ§','ÉúÎï','ÕşÖÎ','ÀúÊ·','µØÀí','×Ü·Ö','Æ½¾ù·Ö']
+title =['åæ¬¡','å§“å','è¯­æ–‡','æ•°å­¦','è‹±è¯­','ç‰©ç†','åŒ–å­¦','ç”Ÿç‰©','æ”¿æ²»','å†å²','åœ°ç†','æ€»åˆ†','å¹³å‡åˆ†']
 f = open('new.txt','w')
 f.write(' '.join(title)+'\n')
 f.write(' '.join(average_list)+'\n')
