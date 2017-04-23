@@ -19,4 +19,3 @@ while True:
             print i.get('date'), ': ', i.get('type'), ',', i.get('low'), ',', i.get('high')
     else:
         print '未能获取到该城市天气'
-print
