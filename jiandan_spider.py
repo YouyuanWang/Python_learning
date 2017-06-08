@@ -31,7 +31,6 @@ class MyThread(threading.Thread):
         numMutex.acquire()
         downloadImg(self.url)
         global g_threadNum
-       # print('关闭线程',self.url)
         g_threadNum -= 1
         numMutex.release()
 
@@ -46,7 +45,6 @@ def webspider():
             newUrl = urlPool.pop()
             g_threadNum += 1
             newThread = MyThread(newUrl)
-            #print('开启一个线程：', newUrl)
             newThread.start()
 
 if __name__ == '__main__':
